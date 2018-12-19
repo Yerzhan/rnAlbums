@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, SafeAreaView} from 'react-native';
 import Header from './src/components/Header';
 
 const instructions = Platform.select({
@@ -21,11 +21,11 @@ type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <View style={styles.container}>
-        <Header />
+      <SafeAreaView style={{flex: 1, backgroundColor: '#F8F8F8'}}>
+        <Header headerText={'Albums!'}/>
         
         <Text style={styles.instructions}>{instructions}</Text>
-      </View>
+      </SafeAreaView>
     );
   }
 }
