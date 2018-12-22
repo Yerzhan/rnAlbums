@@ -25,7 +25,6 @@ export default class App extends Component<Props> {
       <SafeAreaView style={{flex: 1, backgroundColor: '#F8F8F8'}}>
         <Header headerText={'Albums!'}/>
         <AlbumList />
-        <Text style={styles.instructions}>{instructions}</Text>
       </SafeAreaView>
     );
   }
