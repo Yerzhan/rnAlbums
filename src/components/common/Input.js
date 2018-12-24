@@ -10,6 +10,9 @@ class Input extends Component {
             value={this.props.value}
             onChangeText={this.props.onChangeText}
             style={styles.inputStyle} 
+            autoCorrect={false}
+            placeholder={this.props.placeholder}
+            secureTextEntry={this.props.secureTextEntry}
           />
       </View>
     );
