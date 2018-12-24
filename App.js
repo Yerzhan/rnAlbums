@@ -10,7 +10,6 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, SafeAreaView} from 'react-native';
 import firebase from 'firebase';
 import { Header } from './src/components/common';
-import AlbumList from './src/components/AlbumList';
 import keys from './config/keys'
 import LoginForm from './src/components/LoginForm';
 
@@ -36,7 +35,7 @@ export default class App extends Component {
   render() {
     return (
       <SafeAreaView style={{flex: 1, backgroundColor: '#F8F8F8'}}>
-        <Header headerText={'Authentication!'}/>
+        <Header headerText={'Authentication'}/>
         <LoginForm />
       </SafeAreaView>
     );
