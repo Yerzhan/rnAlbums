@@ -7,9 +7,12 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, SafeAreaView} from 'react-native';
+import {Platform, StyleSheet, SafeAreaView} from 'react-native';
+import firebase from 'firebase';
 import { Header } from './src/components/common';
 import AlbumList from './src/components/AlbumList';
+import keys from './config/keys'
+import LoginForm from './src/components/LoginForm';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -18,13 +21,23 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
+  componentWillMount(){
+    firebase.initializeApp({
+      apiKey: keys.apiKey,
+      authDomain: keys.authDomain,
+      databaseURL: keys.databaseURL,
+      projectId: keys.projectId,
+      storageBucket: keys.storageBucket,
+      messagingSenderId: keys.storageBucket
+    });
+  }
+
   render() {
     return (
       <SafeAreaView style={{flex: 1, backgroundColor: '#F8F8F8'}}>
-        <Header headerText={'Albums!'}/>
-        <AlbumList />
+        <Header headerText={'Authentication!'}/>
+        <LoginForm />
       </SafeAreaView>
     );
   }
