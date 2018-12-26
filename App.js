@@ -9,9 +9,15 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, SafeAreaView} from 'react-native';
 import firebase from 'firebase';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducers from './src/reducers';
+
 import { Header, Button, Spinner } from './src/components/common';
 import keys from './config/keys'
 import LoginForm from './src/components/LoginForm';
+import TechStack from './src/components/TechStack';
+
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -43,6 +49,7 @@ export default class App extends Component {
   }
 
   renderContent(){
+    //header: Authentication
     switch(this.state.loggedIn){
       case true: {
         return (
@@ -61,8 +68,13 @@ export default class App extends Component {
   render() {
     return (
       <SafeAreaView style={{flex: 1, backgroundColor: '#F8F8F8'}}>
-        <Header headerText={'Authentication'}/>
-        {this.renderContent()}
+        <Header headerText={'TechStack'}/>
+        {/* {this.renderContent()} */}
+
+        <Provider store={createStore(reducers)}>
+          <TechStack />
+        </Provider>
+
       </SafeAreaView>
     );
   }
