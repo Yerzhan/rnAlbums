@@ -1,5 +1,6 @@
 export default (state = null, action) => {
-  switch (actyion.type) {
+  console.log(action);
+  switch (action.type) {
     case 'select_library':
       return action.payload;
   
