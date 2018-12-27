@@ -68,7 +68,7 @@ export default class App extends Component {
   render() {
     return (
       <SafeAreaView style={{flex: 1, backgroundColor: '#F8F8F8'}}>
-        <Header headerText={'TechStack'}/>
+        <Header headerText={'Tech Stack'}/>
         {/* {this.renderContent()} */}
 
         <Provider store={createStore(reducers)}>
